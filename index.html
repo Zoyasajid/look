@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>watch</title>
+</head>
+<style>
+    body{
+        margin: 0%;
+        padding: 0%;
+        background: black;
+    }
+    .container{
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 40px;
+        color: white;
+        font-weight: bolder;
+        left: 40%;
+        top: 50%;
+        position: absolute;
+    }
+    p{
+        color: palevioletred;
+    }
+    </style>
+<body>
+    <div class="container">
+        <!-- <div id="day"> -->
+            <p id="day">this</p>
+        <!-- </div> -->
+        <div class="clock">
+                <span id="hour">00</span>
+        <span >:</span>
+        <span id="mine">00</span>
+        <span>:</span>
+        <span id="second">00</span>
+        <span id="session">Am </span>
+        </div>
+    </div>
+</body>
+<script>
+function dayandMonth(){
+    let newobj = new Date ();
+    let days = ['Saturday' ,'Sunday', 'Mondat','tuesday', 'wednesday'
+,'Thursday','Friday'];
+
+    let months = ['january' , 'february ', 'march', 'april', 'may'
+,'june', 'july', 'august','september' ,
+'october',' november' , 'december'];
+let day =newobj.getDay();
+let month =newobj.getMonth();
+let year =newobj.getFullYear();
+let date =newobj.getDate();
+var datea = day + '-' + month + '-' + year;
+document.getElementById("day").innerHTML = dayandMonth;
+
+}
+// setInterval(showTime, 1000);
+
+    function displaytime(){
+        var datetime =new Date();
+        var hrs =datetime.getHours();
+        var min =datetime.getMinutes();
+        var sec =datetime.getSeconds();
+        var session =document.getElementById("session")
+
+        if(hrs>=12){
+            session.innerHTML= 'PM';
+        }else{
+            session.innerHTML = 'AM';
+        }
+        if(hrs>12){
+            hrs = hrs-12
+        }
+        document.getElementById("hour").innerHTML=hrs;
+        document.getElementById("mine").innerHTML=min;
+        document.getElementById("second").innerHTML=sec;
+    }
+    setInterval(displaytime, 10)
+</script>
+</html>
